@@ -15,8 +15,8 @@ if args[1] == "-hs" then
 	local f = args[2]
     file = fs.open(f, "r")
     for k,v in pairs(file.readLine()) do
-    	if v:find("sys.print(") then
-    		if v == "sys.print" then
+    	if v:find("sys.print") then
+    		if v == "sys.print(" then
     			printError(f..":"..tostring(k)..": ) expected, (to close sys.print on line "..tostring(k)..")")
     			error()
     		elseif v == "sys.print)" then
